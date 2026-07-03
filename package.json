@@ -1,9 +1,9 @@
 {
-  "name": "be.elab.tbiolayermirror",
-  "displayName": "\ud83e\uddf0:Text Byte In Out Layer with Mirror",
+  "name": "be.elab.tbiomicrofish",
+  "displayName": "\ud83e\uddf0: Micro Fish TBIO",
   "version": "0.0.1",
   "unity": "2018.1",
-  "description": "Abstract bridge between server and client code for modding in aim to learn code",
+  "description": "Micro Fish TBIO ",
   "keywords": [
     "Script",
     "Tool"
@@ -23,11 +23,11 @@
   },
   "repository": {
     "type": "Git",
-    "url": "https://github.com/EloiStree/2026_06_29_upm_text_byte_in_out_layer.git",
+    "url": "https://github.com/EloiStree/2026_07_03_upm_micro_fish_tbio_server.git",
     "footprint": "",
     "revision": ""
   },
   "category": "Script",
-  "documentationUrl": "https://github.com/EloiStree/2026_06_29_upm_text_byte_in_out_layer/blob/main/README.md",
-  "licensesUrl": "https://github.com/EloiStree/2026_06_29_upm_text_byte_in_out_layer/blob/main/LICENSE"
+  "documentationUrl": "https://github.com/EloiStree/2026_07_03_upm_micro_fish_tbio_server/blob/main/README.md",
+  "licensesUrl": "https://github.com/EloiStree/2026_07_03_upm_micro_fish_tbio_server/blob/main/LICENSE"
 }
