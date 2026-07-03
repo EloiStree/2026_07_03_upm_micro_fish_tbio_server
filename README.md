@@ -27,3 +27,8 @@ The idea of this project is to showcase how a multiplayer game server can be bui
 You can think of the networking layer as being similar to a WebSocket backend that guarantees an RSA signature and maintains the link between an integer identifier and an RSA identity.
 
 Let's demonstrate how this works.
+
+
+**See:**
+- 2026_06_29_upm_text_byte_in_out_layer_mirror_rsa
+- 2026_06_29_upm_text_byte_in_out_layer
