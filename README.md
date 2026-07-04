@@ -7,6 +7,9 @@ git submodule add https://github.com/EloiStree/2026_07_03_upm_micro_fish_tbio_se
 
 Aquarium of Micro Fish to demonstrate the TBIO concept.
 
+<img width="1694" height="950" alt="image" src="https://github.com/user-attachments/assets/cf879d8f-cc64-4395-8b11-34f166bb1f99" />
+
+
 **TBIO** stands for **Text Byte In Out**.
 
 Consider a client-server architecture:
