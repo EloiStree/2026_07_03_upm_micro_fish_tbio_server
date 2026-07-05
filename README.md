@@ -45,3 +45,16 @@ Let's demonstrate how this works.
 **See:**
 - 2026_06_29_upm_text_byte_in_out_layer_mirror_rsa
 - 2026_06_29_upm_text_byte_in_out_layer
+
+
+
+----
+
+
+Client version usable in XR:   
+<img width="744" height="674" alt="image" src="https://github.com/user-attachments/assets/f877389e-b9ba-4790-80bb-9039c3112136" />   
+
+Server Client in UDP TBIO:   
+<img width="762" height="465" alt="image" src="https://github.com/user-attachments/assets/bd4548fb-6f06-44da-89ec-ffb970d6277c" />    
+
+
