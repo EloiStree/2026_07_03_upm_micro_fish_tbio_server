@@ -1,27 +1,30 @@
+
+using System;
+using System.Collections;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Eloi.MicroFish { 
-public class MicroFishMono_GameInOut : MonoBehaviour
+namespace Eloi.MicroFish
 {
-
+    public class MicroFishMono_GameInOut : MonoBehaviour
+    {
         public UnityEvent<byte[]> m_onEmitByteInfo;
         public UnityEvent<string> m_onEmitTextInfo;
-        public UnityEvent<int,byte[]> m_onEmitByteInfoForPlayer;
-        public UnityEvent<int,string> m_onEmitTextInfoForPlayer;
+        public UnityEvent<int, byte[]> m_onEmitByteInfoForPlayer;
+        public UnityEvent<int, string> m_onEmitTextInfoForPlayer;
 
         public Transform m_startDownCorner;
         public Transform m_endTopCorner;
 
-        public int[] m_playerClaimedIndex ;
+        public int[] m_playerClaimedIndex;
         public string[] m_playerClaimedPublicKey;
 
         public MicroFishMono_MotorInput[] m_playersInput;
         public MicroFishMono_BatteryForFourMotor[] m_playersBattery;
         public Transform[] m_playersPosition;
 
-        public Vector3 [] m_localPlayerPosition;
+        public Vector3[] m_localPlayerPosition;
         public Quaternion[] m_localPlayerRotation;
         public Vector3 m_dimension;
 
@@ -35,12 +38,22 @@ public class MicroFishMono_GameInOut : MonoBehaviour
         public string m_playerIdInfoAsText;
         public byte[] m_gameStateAsByte;
 
+        public bool m_givePlayerRandomPositionOnStart = true;
+
+
+        public Transform m_ballPosition;
+        public Transform m_ballRadiusAnchor;
+        public float m_ballRadius = 0.01f;
+
 
         private void Update()
         {
             m_timeSinceGameStart += Time.deltaTime;
+            if (m_ballPosition != null && m_ballRadiusAnchor != null)
+                m_ballRadius = Vector3.Distance(m_ballPosition.position, m_ballRadiusAnchor.position);
         }
-        
+
+
 
         public void SetPlayerPublicKeyFromArray(params string[] publicKeys)
         {
@@ -71,25 +84,25 @@ public class MicroFishMono_GameInOut : MonoBehaviour
         }
 
         public void MovePlayerFromArrayIndex(int arrayIndex, params float[] motors)
-    {
-        m_playersInput[arrayIndex].SetMotorsWithFloatArray(motors);
-    }
-    public void MovePlayerFromPublicKey(string publicKey, params float[] motors)
-    {
-        int index = System.Array.IndexOf(m_playerClaimedPublicKey, publicKey);
-        if (index >= 0)
         {
-            m_playersInput[index].SetMotorsWithFloatArray(motors);
+            m_playersInput[arrayIndex].SetMotorsWithFloatArray(motors);
         }
-    }
-    public void MovePlayerFromClaimedIndex(int claimedIndex, params float[] motors)
-    {
-        int index = System.Array.IndexOf(m_playerClaimedIndex, claimedIndex);
-        if (index >= 0)
+        public void MovePlayerFromPublicKey(string publicKey, params float[] motors)
         {
-            m_playersInput[index].SetMotorsWithFloatArray(motors);
+            int index = System.Array.IndexOf(m_playerClaimedPublicKey, publicKey);
+            if (index >= 0)
+            {
+                m_playersInput[index].SetMotorsWithFloatArray(motors);
+            }
         }
-    }
+        public void MovePlayerFromClaimedIndex(int claimedIndex, params float[] motors)
+        {
+            int index = System.Array.IndexOf(m_playerClaimedIndex, claimedIndex);
+            if (index >= 0)
+            {
+                m_playersInput[index].SetMotorsWithFloatArray(motors);
+            }
+        }
 
         public bool m_useUpdateForPersonnalPosition = true;
         public void FixedUpdate()
@@ -102,15 +115,15 @@ public class MicroFishMono_GameInOut : MonoBehaviour
 
             for (int i = 0; i < m_playersPosition.Length; i++)
             {
-                GetWorldToLocal_DirectionalPoint(m_startDownCorner.position, m_startDownCorner.rotation,
-                    m_playersPosition[i].position, m_playersPosition[i].rotation,
+                GetWorldToLocal_DirectionalPoint(m_playersPosition[i].position, m_playersPosition[i].rotation,
+                    m_startDownCorner.position, m_startDownCorner .rotation,
                     out m_localPlayerPosition[i], out m_localPlayerRotation[i]);
             }
-            GetWorldToLocal_DirectionalPoint(m_startDownCorner.position, m_startDownCorner.rotation,
-                m_endTopCorner.position, m_endTopCorner.rotation,
+            GetWorldToLocal_DirectionalPoint(m_endTopCorner.position, m_endTopCorner.rotation,
+                m_startDownCorner.position, m_startDownCorner.rotation,
                 out m_dimension, out _);
 
-            if(m_useUpdateForPersonnalPosition)
+            if (m_useUpdateForPersonnalPosition)
             {
                 PushCurrentPlayerPositionRotation();
             }
@@ -124,6 +137,44 @@ public class MicroFishMono_GameInOut : MonoBehaviour
             if (m_useAutoPushAll)
             {
                 InvokeRepeating(nameof(PushAll), m_autoPushTime, m_autoPushTime);
+            }
+
+        }
+
+        public IEnumerator Start()
+        {
+
+            yield return new WaitForSeconds(2.5f);
+            if (m_givePlayerRandomPositionOnStart)
+            {
+                GivePlayerRandomPositionOnStart();
+
+            }
+        }
+
+
+        [ContextMenu("Give Player Random Position On Start")]
+        public void GivePlayerRandomPositionOnStart()
+        {
+
+            GetWorldToLocal_DirectionalPoint(m_endTopCorner.position, m_endTopCorner.rotation,
+                m_startDownCorner.position, m_startDownCorner.rotation,
+                out Vector3 localDimension, out _);
+
+            Debug.Log($"Local dimension is {localDimension.x} x {localDimension.y} x {localDimension.z}");
+            for (int i = 0; i < m_playersPosition.Length; i++)
+            {
+                Vector3 randomLocalPosition = new Vector3(
+                    UnityEngine.Random.Range(0f, localDimension.x),
+                    UnityEngine.Random.Range(0f, localDimension.y),
+                    UnityEngine.Random.Range(0f, localDimension.z)
+                );
+                GetLocalToWorld_DirectionalPoint(randomLocalPosition, Quaternion.identity,
+                    m_startDownCorner.position, m_startDownCorner.rotation,
+                    out Vector3 worldPosition, out Quaternion worldRotation);
+                m_playersPosition[i].position = worldPosition;
+                m_playersPosition[i].rotation = worldRotation;
+                Debug.Log($"Player {i} random position is {worldPosition} and rotation is {worldRotation}");
             }
         }
 
@@ -155,12 +206,25 @@ public class MicroFishMono_GameInOut : MonoBehaviour
             m_onEmitByteInfo.Invoke(m_gameStateAsByte);
         }
 
+        public void NotifyToClientsTeamScoreChanged(int leftTeam, int rightTeam)
+        {
+            m_onEmitTextInfo.Invoke($"SOCCER_SCORE:{leftTeam}:{rightTeam}");
+        }
+
         private void PushCurrentGameInformationAsText()
         {
             StringBuilder gameInfo = new StringBuilder();
             gameInfo.AppendLine($"GAME_TIME_IN_SECONDS:{m_timeSinceGameStart}");
             gameInfo.AppendLine($"DIMENSION:{m_dimension.x}:{m_dimension.y}:{m_dimension.z}");
             gameInfo.AppendLine($"PLAYER_COUNT:{m_playersPosition.Length}");
+            if (m_ballPosition != null && m_ballRadiusAnchor != null)
+            {
+                GetWorldToLocal_DirectionalPoint(m_ballPosition.position, m_ballPosition.rotation,
+                    m_startDownCorner.position, m_startDownCorner.rotation,
+                    out Vector3 localBallPosition, out _);
+                gameInfo.AppendLine($"BALL_POSITION:{localBallPosition.x}:{localBallPosition.y}:{localBallPosition.z}");
+                gameInfo.AppendLine($"BALL_RADIUS:{m_ballRadius}");
+            }
             m_gameStateAsText = gameInfo.ToString();
             m_gameStateAsTextCount = m_gameStateAsText.Length;
             m_onEmitTextInfo.Invoke(m_gameStateAsText);
@@ -173,7 +237,12 @@ public class MicroFishMono_GameInOut : MonoBehaviour
             {
                 string indexClaimed = m_playerClaimedIndex.Length > i ? m_playerClaimedIndex[i].ToString() : "";
                 string publicKeyClaimed = m_playerClaimedPublicKey.Length > i ? m_playerClaimedPublicKey[i] : "";
-                playerInfo.Append($"PLAYER:{i}:{indexClaimed}:{publicKeyClaimed}");
+                playerInfo.AppendLine($"PLAYER:{i}:{indexClaimed}:{publicKeyClaimed}");
+            }
+            for (int i = 0; i < m_playersBattery.Length; i++)
+            {
+                float batteryPercent = m_playersBattery[i].GetBatteryPercent();
+                playerInfo.AppendLine($"BATTERY:{i}:{batteryPercent}");
             }
             m_playerIdInfoAsText = playerInfo.ToString();
             m_onEmitTextInfo.Invoke(m_playerIdInfoAsText);
@@ -189,8 +258,6 @@ public class MicroFishMono_GameInOut : MonoBehaviour
                 float batteryPercent = m_playersBattery[i].GetBatteryPercent();
                 info.AppendLine($"BATTERY:{i}:{batteryPercent}");
                 m_onEmitTextInfoForPlayer.Invoke(i, info.ToString());
-
-
             }
         }
         public void PushDetailBytePlayerInformation()
@@ -210,17 +277,44 @@ public class MicroFishMono_GameInOut : MonoBehaviour
         }
 
         public static void GetWorldToLocal_DirectionalPoint(in Vector3 worldPosition, in Quaternion worldRotation, in Vector3 positionReference, in Quaternion rotationReference, out Vector3 localPosition, out Quaternion localRotation)
-    {
-        localRotation = Quaternion.Inverse(rotationReference) * worldRotation;
-        localPosition = Quaternion.Inverse(rotationReference) * (worldPosition - positionReference);
-    }
-    public static void GetLocalToWorld_DirectionalPoint(in Vector3 localPosition, in Quaternion localRotation, in Vector3 positionReference, in Quaternion rotationReference, out Vector3 worldPosition, out Quaternion worldRotation)
-    {
-        /// I need to verify the commutativity of this code. 
-        /// I think it was ok then had a bug in a game link to this methode and thr commutative property
-        worldRotation = rotationReference * localRotation;
-        worldPosition = (rotationReference * localPosition) + (positionReference);
-    }
-}
+        {
+            localRotation = Quaternion.Inverse(rotationReference) * worldRotation;
+            localPosition = Quaternion.Inverse(rotationReference) * (worldPosition - positionReference);
+        }
+        public static void GetLocalToWorld_DirectionalPoint(in Vector3 localPosition, in Quaternion localRotation, in Vector3 positionReference, in Quaternion rotationReference, out Vector3 worldPosition, out Quaternion worldRotation)
+        {
+            /// I need to verify the commutativity of this code. 
+            /// I think it was ok then had a bug in a game link to this methode and thr commutative property
+            worldRotation = rotationReference * localRotation;
+            worldPosition = (rotationReference * localPosition) + (positionReference);
+        }
 
+        public void ThrustedInputParsing(byte[] data)
+        {
+            if (data.Length > 20)
+                return;
+
+            if (data.Length == 20)
+            {
+
+                int playerIndex = BitConverter.ToInt32(data, 0);
+                float motor1 = BitConverter.ToSingle(data, 4);
+                float motor2 = BitConverter.ToSingle(data, 8);
+                float motor3 = BitConverter.ToSingle(data, 12);
+                float motor4 = BitConverter.ToSingle(data, 16);
+                if (playerIndex >= 0 && playerIndex < m_playersInput.Length)
+                {
+                    m_playersInput[playerIndex].SetMotorsWithFloatArray(motor1, motor2, motor3, motor4);
+                }
+                if (playerIndex==0)
+                {
+                    for (int i = 0; i < m_playersInput.Length; i++)
+                    {
+                        m_playersInput[i].SetMotorsWithFloatArray(motor1, motor2, motor3, motor4);
+                    }
+                }
+            }
+        }
+
+    }
 }

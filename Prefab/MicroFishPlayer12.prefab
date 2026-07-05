@@ -404,14 +404,6 @@ PrefabInstance:
       propertyPath: m_texture
       value: 
       objectReference: {fileID: 2800000, guid: 38790586d93844a429b23c2aef51994f, type: 3}
-    - target: {fileID: 8528245575089841089, guid: 763791c180eee6748b25bc3dbf08604a, type: 3}
-      propertyPath: m_batteryCapacitymAh
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528245575089841089, guid: 763791c180eee6748b25bc3dbf08604a, type: 3}
-      propertyPath: m_batteryRemainingmAh
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8865673935467589475, guid: 763791c180eee6748b25bc3dbf08604a, type: 3}
       propertyPath: m_Constraints
       value: 112

@@ -329,6 +329,7 @@ MonoBehaviour:
   m_backFrontMotorPivot: {fileID: 992238536485581874}
   m_leftRightMotorPivot: {fileID: 4054806341229273283}
   m_directionToMoveForwardAndUp: {fileID: 3156957595174834643}
+  m_hasBattery: 0
   m_leftMotorPercent11: 0
   m_rightMotorPercent11: 0
   m_backMotorPercent11: 0
@@ -359,7 +360,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba88b2e24c28742b54be0ccb07138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_BatteryForFourMotor
-  m_batteryCapacitymAh: 600
+  m_onBatteryHasEnoughPower:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2109530394487218970}
+        m_TargetAssemblyTypeName: Eloi.MicroFish.MicroFishMono_BasicTransformV0,
+          be.elab.tbiomicrofish.Runtime
+        m_MethodName: SetBatteryState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onBatteryIsEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+  m_batteryCapacityMilliAmperHour: 10
   m_fullVoltage: 4.5
   m_emptyVoltage: 3.4
   m_internalResistanceOhm: 0.15
@@ -369,7 +389,7 @@ MonoBehaviour:
   m_motorIntensityRight: 0
   m_motorIntensityBack: 0
   m_motorIntensityFront: 0
-  m_batteryRemainingmAh: 600
+  m_batteryRemainingMilliAmperHour: 0
   m_totalCurrentAmp: 0
   m_totalPowerWatt: 0
   m_consumedMilliAmpereHour: 0

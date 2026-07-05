@@ -4,9 +4,14 @@ using UnityEngine.Events;
 
 public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
 {
+
+    public UnityEvent<bool> m_onBatteryHasEnoughPower;
+    public UnityEvent m_onBatteryIsEmpty;
+
+
     [Header("LiPo Battery Specs (Single Cell)")]
     [Tooltip("Total capacity in mAh")]
-    public float m_batteryCapacitymAh = 600f;
+    public float m_batteryCapacityMilliAmperHour = 600f;
 
     [Tooltip("Voltage when fully charged (4.2V for LiPo)")]
     public float m_fullVoltage = 4.2f;
@@ -31,7 +36,7 @@ public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
     [Range(0, 1)] public float m_motorIntensityFront;
 
     [Header("Runtime (Read Only)")]
-    public float m_batteryRemainingmAh;
+    public float m_batteryRemainingMilliAmperHour;
     public float m_totalCurrentAmp;
     public float m_totalPowerWatt;
     public float m_consumedMilliAmpereHour;
@@ -61,8 +66,9 @@ public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
 
     void Awake()
     {
-        m_batteryRemainingmAh = m_batteryCapacitymAh;
+        m_batteryRemainingMilliAmperHour = m_batteryCapacityMilliAmperHour;
         UpdateBatteryState(true);
+        m_onBatteryHasEnoughPower.Invoke(!m_isBatteryEmpty);
     }
 
     /// <summary>
@@ -114,7 +120,7 @@ public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
         // === 5. Drain Battery ===
         // mAh = Amps × 1000 × (seconds / 3600)
         float consumedThisFrame = m_totalCurrentAmp * 1000f * Time.deltaTime / 3600f;
-        m_batteryRemainingmAh = Mathf.Max(0f, m_batteryRemainingmAh - consumedThisFrame);
+        m_batteryRemainingMilliAmperHour = Mathf.Max(0f, m_batteryRemainingMilliAmperHour - consumedThisFrame);
 
         // === 6. Track Total Consumption ===
         m_consumedMilliAmpereHour += consumedThisFrame;
@@ -122,7 +128,7 @@ public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
 
         // === 7. Estimate Time Remaining ===
         m_estimatedMinutesLeft = m_totalCurrentAmp > 0.001f
-            ? (m_batteryRemainingmAh / (m_totalCurrentAmp * 1000f)) * 60f
+            ? (m_batteryRemainingMilliAmperHour / (m_totalCurrentAmp * 1000f)) * 60f
             : float.PositiveInfinity;
 
         UpdateBatteryState(false);
@@ -154,15 +160,22 @@ public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
 
         return m_emptyVoltage + range * curve;
     }
-
     private void UpdateBatteryState(bool force)
     {
         // Calculate percentage from remaining capacity
-        m_batteryPercent = Mathf.Clamp01(m_batteryRemainingmAh / m_batteryCapacitymAh);
+        m_batteryPercent = Mathf.Clamp01(m_batteryRemainingMilliAmperHour / m_batteryCapacityMilliAmperHour);
 
         // Battery is empty when capacity is depleted
         // (NOT based on voltage, to avoid circular logic)
-        m_isBatteryEmpty = m_batteryRemainingmAh <= 0.01f;
+        bool previousEmptyState = m_isBatteryEmpty;
+        m_isBatteryEmpty = m_batteryRemainingMilliAmperHour <= 0.01f;
+
+        if (previousEmptyState != m_isBatteryEmpty)
+        {
+            m_onBatteryHasEnoughPower.Invoke(!m_isBatteryEmpty);
+            if (m_isBatteryEmpty)
+                m_onBatteryIsEmpty.Invoke();
+        }
 
         // Fire events only when values change significantly
         if (force || Mathf.Abs(m_previousCurrent - m_totalCurrentAmp) > 0.001f)
@@ -195,7 +208,7 @@ public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
     /// </summary>
     public void Recharge()
     {
-        m_batteryRemainingmAh = m_batteryCapacitymAh;
+        m_batteryRemainingMilliAmperHour = m_batteryCapacityMilliAmperHour;
         m_consumedMilliAmpereHour = 0f;
         m_consumedWattHour = 0f;
         m_totalCurrentAmp = 0f;
@@ -208,12 +221,12 @@ public class MicroFishMono_BatteryForFourMotor : MonoBehaviour
     /// </summary>
     public void SetBatteryPercent(float percent)
     {
-        m_batteryRemainingmAh = m_batteryCapacitymAh * Mathf.Clamp01(percent);
+        m_batteryRemainingMilliAmperHour = m_batteryCapacityMilliAmperHour * Mathf.Clamp01(percent);
         UpdateBatteryState(true);
     }
 
-    internal float GetBatteryPercent()
+    public float GetBatteryPercent()
     {
-        throw new NotImplementedException();
+        return m_batteryPercent;
     }
 }

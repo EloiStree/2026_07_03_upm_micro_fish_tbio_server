@@ -22,6 +22,8 @@ namespace Eloi.MicroFish
         public Transform m_leftRightMotorPivot;
         public Transform m_directionToMoveForwardAndUp;
 
+        public bool m_hasBattery = false;
+
         [Header("Motor Percentages")]
         [Range(-1f, 1f)]
         public float m_leftMotorPercent11 = 0f;
@@ -63,8 +65,17 @@ namespace Eloi.MicroFish
         public float m_lerpFactor = 5f;
 
 
+
+        public void SetBatteryState(bool hasBattery)
+        {
+            m_hasBattery = hasBattery;
+
+        }
+
         public void FixedUpdate()
         {
+
+            
 
             float deltaTime = Time.fixedDeltaTime;
 
@@ -74,8 +85,9 @@ namespace Eloi.MicroFish
             m_frontMotorPercent11Lerp = Mathf.Lerp(m_frontMotorPercent11Lerp, m_frontMotorPercent11, deltaTime * m_lerpFactor);
 
             MotorToMovementInput();
+            if (!m_hasBattery)
+                return;
             m_leftRightRotationAroundVerticalValue += m_rotateLeftRightPercent11 * m_leftRightRotationAroundVerticalAngleMax * deltaTime;
-
             m_whatToMove.rotation = Quaternion.Euler(0,- m_leftRightRotationAroundVerticalValue, 0f);
             m_whatToMove.Rotate(Vector3.right, m_boilingPercent11 * m_boilingRotationAngleMax, Space.Self);
             m_whatToMove.Translate(m_directionToMoveForwardAndUp.forward * m_moveForwardPercent11 * m_moveBackFrontSpeedMax*deltaTime, Space.World);
