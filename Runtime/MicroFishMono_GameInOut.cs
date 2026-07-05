@@ -306,13 +306,6 @@ namespace Eloi.MicroFish
                 {
                     m_playersInput[playerIndex].SetMotorsWithFloatArray(motor1, motor2, motor3, motor4);
                 }
-                if (playerIndex==0)
-                {
-                    for (int i = 0; i < m_playersInput.Length; i++)
-                    {
-                        m_playersInput[i].SetMotorsWithFloatArray(motor1, motor2, motor3, motor4);
-                    }
-                }
             }
         }
 
