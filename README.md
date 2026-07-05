@@ -3,6 +3,10 @@
 git submodule add https://github.com/EloiStree/2026_07_03_upm_micro_fish_tbio_server.git Packages/be.elab.tbiomicrofish
 ```
 
+In case [CPSdrone](https://www.youtube.com/@CPSdrone) read this, I am here ;)    
+https://discord.gg/uKwNN2ECJH  
+
+
 # 2026_07_03_upm_micro_fish_tbio_server
 
 Aquarium of Micro Fish to demonstrate the TBIO concept.
