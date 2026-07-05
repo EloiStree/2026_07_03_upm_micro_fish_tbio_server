@@ -1,9 +1,11 @@
+using Codice.CM.Common.Serialization.Replication;
+using Eloi.MicroFish;
 using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SleepyCodeMicroFishMono : MonoBehaviour
+public class MicroFishMono_ClientInOutExample : MonoBehaviour
 {
 
     public UnityEvent<string> m_OnPushTextToServer;
@@ -25,7 +27,19 @@ public class SleepyCodeMicroFishMono : MonoBehaviour
     public Vector3[] m_playerEuler;
     public int[] m_playerClaimedInteger;
     public string [] m_playerPublicKey;
-    public float[] m_playerBatteryLevel;
+    public float [] m_playerBatteryLevel;
+    public Color[] m_playersColor;
+    public FourMotorInputState[] m_playersMotors;
+
+
+
+    [System.Serializable]
+    public class FourMotorInputState
+    {   public float m_leftMotorPercent11;
+        public float m_rightMotorPercent11;
+        public float m_backMotorPercent11;
+        public float m_frontMotorPercent11;
+    }
 
     public void ReceivedFromServerText(string text)
     {
@@ -48,6 +62,8 @@ public class SleepyCodeMicroFishMono : MonoBehaviour
                         m_playerClaimedInteger = new int[m_playerCount];
                         m_playerPublicKey = new string[m_playerCount];
                         m_playerBatteryLevel= new float[m_playerCount];
+                        m_playersColor = new Color[m_playerCount];
+                        m_playersMotors = new FourMotorInputState[m_playerCount];
                     }
                 }
             }
@@ -61,6 +77,29 @@ public class SleepyCodeMicroFishMono : MonoBehaviour
                     float y = float.Parse(parts[2]);
                     float z = float.Parse(parts[3]);
                     m_dimension = new Vector3(x, y, z);
+                }
+            }
+            else if (line.StartsWith("PLAYER_COLOR"))
+            {
+                //PLAYER_COLOR: 8:25:193:221
+                //PLAYER_COLOR: 9:216:123:117
+                //PLAYER_COLOR: 10:27:17:80
+                //PLAYER_COLOR: 11:154:5:5
+                //COLOR:1:255:255:255
+                string[] parts = line.Trim().Split(":");
+                if (parts.Length == 5)
+                {
+                    if (int.TryParse(parts[1].Trim(), out int playerIndex) &&
+                        int.TryParse(parts[2].Trim(), out int r) &&
+                        int.TryParse(parts[3].Trim(), out int g) &&
+                        int.TryParse(parts[4].Trim(), out int b))
+                    {
+                        Color color = new Color(r / 255f, g / 255f, b / 255f, 1f);
+                        if (playerIndex >= 0 && playerIndex < m_playerCount)
+                        {
+                            m_playersColor[playerIndex] = color;
+                        }
+                    }
                 }
             }
             else if (line.StartsWith("PLAYER"))
@@ -98,6 +137,8 @@ public class SleepyCodeMicroFishMono : MonoBehaviour
                     }
                 }
             }
+
+           
             else if (line.StartsWith("GAME_TIME_IN_SECONDS:"))
             {
                 //GAME_TIME_IN_SECONDS:1.037494
@@ -130,9 +171,8 @@ public class SleepyCodeMicroFishMono : MonoBehaviour
             }
             else if (line.StartsWith("BALL_RADIUS:"))
             {
-                //BALL_RADIUS:0.2
                 string[] parts = line.Split(':');
-                if (parts.Length == 4)
+                if (parts.Length == 2)
                 {
                     float x = float.Parse(parts[1]);
                     m_ballRadius = x;
@@ -165,6 +205,28 @@ public class SleepyCodeMicroFishMono : MonoBehaviour
                 Quaternion rotation = new Quaternion(rotX, rotY, rotZ, rotW);
                 m_playerRotation[i] = rotation;
                 m_playerEuler[i] = rotation.eulerAngles;
+            }
+        }
+
+        int byteExpectedForPlayerInput = m_playerCount * 4 * 4;
+        if (bytes.Length == byteExpectedForPlayerInput)
+        {
+            // left right back front motor = 4 floats = 16 bytes per player
+            for (int i = 0; i < m_playerCount; i++)
+            {
+                int offset = i * 4 * 4;
+                
+                if (i < m_playersMotors.Length)
+                {
+                    if (m_playersMotors[i] == null)
+                    { 
+                        m_playersMotors[i] = new FourMotorInputState();
+                    }
+                    m_playersMotors[i].m_leftMotorPercent11 = BitConverter.ToSingle(bytes, offset);
+                    m_playersMotors[i].m_rightMotorPercent11 = BitConverter.ToSingle(bytes, offset+4);
+                    m_playersMotors[i].m_backMotorPercent11 = BitConverter.ToSingle(bytes, offset + 8);
+                    m_playersMotors[i].m_frontMotorPercent11 = BitConverter.ToSingle(bytes, offset + 12);
+                }
             }
         }
     }

@@ -1955,6 +1955,20 @@ MonoBehaviour:
   - {fileID: 821442660470995113}
   - {fileID: 5689697497946915969}
   - {fileID: 2046858049126356290}
+  m_playersColor:
+  - {fileID: 2621271280572981701}
+  - {fileID: 6980360511012472403}
+  - {fileID: 2929414689711723464}
+  - {fileID: 1972894918177520811}
+  - {fileID: 368386107888008829}
+  - {fileID: 3483212892445723357}
+  - {fileID: 7380177315610589567}
+  - {fileID: 1451374048492526601}
+  - {fileID: 7024462671554186807}
+  - {fileID: 3104188288469964673}
+  - {fileID: 4225271192162924005}
+  - {fileID: 9165011912532445645}
+  - {fileID: 3288352242253764622}
   m_playersPosition:
   - {fileID: 5201791940979515035}
   - {fileID: 905191106705013005}
@@ -2015,11 +2029,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8962805468186913548}
-  - {fileID: 5061870593104884527}
-  - {fileID: 2431172337252490059}
-  - {fileID: 874662722659026054}
-  - {fileID: 3265939794801460094}
-  - {fileID: 834755192300705481}
+  - {fileID: 8025732055915865540}
   m_Father: {fileID: 3578189466789127580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5640014894929582364
@@ -2530,6 +2540,42 @@ Transform:
   - {fileID: 2312252302744827474}
   m_Father: {fileID: 4675398567604665848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8684873894721579238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8025732055915865540}
+  m_Layer: 0
+  m_Name: Bonus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8025732055915865540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8684873894721579238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2431172337252490059}
+  - {fileID: 874662722659026054}
+  - {fileID: 3265939794801460094}
+  - {fileID: 834755192300705481}
+  - {fileID: 5061870593104884527}
+  m_Father: {fileID: 6520566362213946843}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8747821618090317201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,7 +2874,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6520566362213946843}
+    m_TransformParent: {fileID: 8025732055915865540}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fe3ce65a9ee136644ab816ad59799043, type: 3}
       propertyPath: m_LocalScale.x
@@ -2915,7 +2961,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6520566362213946843}
+    m_TransformParent: {fileID: 8025732055915865540}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0107288a2eb7868448f9c7d02e782227, type: 3}
       propertyPath: m_LocalScale.x
@@ -2951,7 +2997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0107288a2eb7868448f9c7d02e782227, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0107288a2eb7868448f9c7d02e782227, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3189,6 +3235,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba88b2e24c28742b54be0ccb07138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_BatteryForFourMotor
+--- !u!114 &368386107888008829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2382246589109767379, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!4 &737308618033186337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3326128056014189711, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3242,6 +3299,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &1451374048492526601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3474496952568278695, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!114 &1509444895382772090 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3522120241029934036, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3297,6 +3365,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba88b2e24c28742b54be0ccb07138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_BatteryForFourMotor
+--- !u!114 &1972894918177520811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4571880302778551813, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!114 &2046858049126356290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4067967748386269164, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3308,6 +3387,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba88b2e24c28742b54be0ccb07138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_BatteryForFourMotor
+--- !u!114 &2621271280572981701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 32393567869604715, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!114 &2729504072001933637 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 140333889258529771, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3319,6 +3409,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba88b2e24c28742b54be0ccb07138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_BatteryForFourMotor
+--- !u!114 &2929414689711723464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 915614681191178598, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!114 &3072674328908837351 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1060563170215510857, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3330,6 +3431,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba88b2e24c28742b54be0ccb07138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_BatteryForFourMotor
+--- !u!114 &3104188288469964673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1083115010465621295, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
+--- !u!114 &3288352242253764622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 698382715530603168, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
+--- !u!114 &3483212892445723357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1460694856129427571, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!114 &3808269893601342257 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1209784787396477343, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3341,6 +3475,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba88b2e24c28742b54be0ccb07138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_BatteryForFourMotor
+--- !u!114 &4225271192162924005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2211434901353498443, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!4 &4751940355846022992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7341427059527767550, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3486,6 +3631,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &6980360511012472403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4957492829997528317, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
+--- !u!114 &7024462671554186807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5001337567898434713, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!114 &7038306764834835268 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5025633619837319658, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3497,6 +3664,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &7380177315610589567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4789610891089873873, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!4 &7587473918575034659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5575362622911984525, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3534,13 +3712,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6658359789114675705, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
   m_PrefabInstance: {fileID: 2599621040868717230}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9165011912532445645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6567123839529270115, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
 --- !u!1001 &2753945817974684832
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6520566362213946843}
+    m_TransformParent: {fileID: 8025732055915865540}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ffaaa154554a6674a90ce5b2e3818de8, type: 3}
       propertyPath: m_LocalScale.x
@@ -3644,7 +3833,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6520566362213946843}
+    m_TransformParent: {fileID: 8025732055915865540}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9cdb125dc58fca149a1c1a3095e154ee, type: 3}
       propertyPath: m_LocalScale.x
@@ -3680,7 +3869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cdb125dc58fca149a1c1a3095e154ee, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cdb125dc58fca149a1c1a3095e154ee, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3860,7 +4049,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6520566362213946843}
+    m_TransformParent: {fileID: 8025732055915865540}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: eef867d7df9f24242aca2d40a6d4298f, type: 3}
       propertyPath: m_LocalScale.x
@@ -3868,11 +4057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eef867d7df9f24242aca2d40a6d4298f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.21928939
+      value: 0.21928942
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eef867d7df9f24242aca2d40a6d4298f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.21928938
+      value: 0.2192894
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eef867d7df9f24242aca2d40a6d4298f, type: 3}
       propertyPath: m_LocalPosition.x

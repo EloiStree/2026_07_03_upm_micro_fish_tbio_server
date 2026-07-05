@@ -708,11 +708,154 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroFishGameInOut
       objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitByteInfo.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitTextInfo.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitByteInfo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6054605992268434079}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitTextInfo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6054605992268434079}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitByteInfo.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitTextInfo.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitByteInfo.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReceivedFromServerByte
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitTextInfo.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReceivedFromServerText
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitByteInfo.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MicroFishMono_ClientInOutExample, be.elab.tbiomicrofish.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitTextInfo.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MicroFishMono_ClientInOutExample, be.elab.tbiomicrofish.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitByteInfo.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_onEmitTextInfo.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698009440494159491, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+--- !u!114 &4042370676368980927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5606526212426220071, guid: cf9cd1ff1098e8f4cb695dd12ef43b67, type: 3}
+  m_PrefabInstance: {fileID: 4042370676368980926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c783d017f83e4b49977166bfb873d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_GameInOut
+--- !u!114 &6054605992268434079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 879660057071939521, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+  m_PrefabInstance: {fileID: 7107630860291963700}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1ae6b311f320468ae43e843a023c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_ClientInOutExample
+--- !u!1001 &7107630860291963700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 879660057071939521, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_OnPushByteToServer.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4042370676368980927}
+    - target: {fileID: 2841310685380554405, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_Name
+      value: IkeaTableMicroFishAquariumClient
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0613
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.85663
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961484413930149326, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8200717
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961484413930149326, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.082
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -723,3 +866,4 @@ SceneRoots:
   - {fileID: 1579757495}
   - {fileID: 4042370676368980926}
   - {fileID: 781067510}
+  - {fileID: 7107630860291963700}

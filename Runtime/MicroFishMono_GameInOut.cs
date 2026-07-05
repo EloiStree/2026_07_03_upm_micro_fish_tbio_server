@@ -22,6 +22,7 @@ namespace Eloi.MicroFish
 
         public MicroFishMono_MotorInput[] m_playersInput;
         public MicroFishMono_BatteryForFourMotor[] m_playersBattery;
+        public MicroFishMono_SetMeshInstanceColor[] m_playersColor;
         public Transform[] m_playersPosition;
 
         public Vector3[] m_localPlayerPosition;
@@ -187,7 +188,22 @@ namespace Eloi.MicroFish
             PushCurrentPlayerIdInformationAsText();
             PushDetailTextPlayerInformation();
             PushDetailBytePlayerInformation();
+            PushCurrentPlayersMotors();
         }
+
+        void PushCurrentPlayersMotors() {
+            byte[] motorState = new byte[4 * 4 * m_playersInput.Length];
+            for (int i = 0; i < m_playersInput.Length; i++)
+            {
+                m_playersInput[i].GetMotorsPercent11AsLRBF(out float left, out float right, out float back, out float front);
+                Buffer.BlockCopy(BitConverter.GetBytes(left), 0, motorState, 16 * i + 0, 4);
+                Buffer.BlockCopy(BitConverter.GetBytes(right), 0, motorState, 16 * i + 4, 4);
+                Buffer.BlockCopy(BitConverter.GetBytes(back), 0, motorState, 16 * i + 8, 4);
+                Buffer.BlockCopy(BitConverter.GetBytes(front), 0, motorState, 16 * i + 12, 4);
+            }
+            m_onEmitByteInfo.Invoke(motorState);
+        }
+
         private void PushCurrentPlayerPositionRotation()
         {
             byte[] playerPosition = new byte[7 * 4 * m_playersPosition.Length];
@@ -204,6 +220,8 @@ namespace Eloi.MicroFish
             m_gameStateAsByte = playerPosition;
             m_gameStateAsByteCount = playerPosition.Length;
             m_onEmitByteInfo.Invoke(m_gameStateAsByte);
+
+          
         }
 
         public void NotifyToClientsTeamScoreChanged(int leftTeam, int rightTeam)
@@ -244,6 +262,12 @@ namespace Eloi.MicroFish
                 float batteryPercent = m_playersBattery[i].GetBatteryPercent();
                 playerInfo.AppendLine($"BATTERY:{i}:{batteryPercent}");
             }
+            for (int i = 0; i < m_playersColor.Length; i++)
+            {
+                Color32 color32 = m_playersColor[i].m_targetColor;
+                playerInfo.AppendLine($"PLAYER_COLOR:{i}:{color32.r}:{color32.g}:{color32.b}");
+            }
+
             m_playerIdInfoAsText = playerInfo.ToString();
             m_onEmitTextInfo.Invoke(m_playerIdInfoAsText);
         }
