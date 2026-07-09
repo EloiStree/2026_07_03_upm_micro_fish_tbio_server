@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 5160877054462307981}
   - component: {fileID: 2109530394487218970}
   - component: {fileID: 8528245575089841089}
+  - component: {fileID: 3606395014829230860}
   m_Layer: 0
   m_Name: MicroFish
   m_TagString: Untagged
@@ -154,7 +155,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740529700070947894}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -413,6 +414,45 @@ MonoBehaviour:
     m_onCurrentUpdated:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &3606395014829230860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740529700070947894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
+  m_onMotorsInputLRBF:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3609170977610217920}
+        m_TargetAssemblyTypeName: Eloi.MicroFish.MicroFishMono_MotorInput, be.elab.tbiomicrofish.Runtime
+        m_MethodName: SetFourMotorWithFloat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_buttonArrowUp: 0
+  m_buttonArrowDown: 0
+  m_buttonArrowLeft: 0
+  m_buttonArrowRight: 0
+  m_buttonA: 0
+  m_buttonB: 0
+  m_buttonMenuLeft: 0
+  m_buttonMenuRight: 0
+  m_motorInputLeft: 0
+  m_motorInputRight: 0
+  m_motorInputBack: 0
+  m_motorInputFront: 0
 --- !u!1 &2114637219442940979
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5532969612563672865}
   - component: {fileID: 2154791560511386060}
   - component: {fileID: 9039776716230709231}
+  - component: {fileID: 5553134880340087738}
   m_Layer: 0
   m_Name: SoccerBall
   m_TagString: Untagged
@@ -122,9 +123,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6527613348924179957}
   serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0.01
-  m_AngularDamping: 0.01
+  m_Mass: 0.2
+  m_LinearDamping: 0.0001
+  m_AngularDamping: 0.0001
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -141,6 +142,24 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &5553134880340087738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527613348924179957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d604d79f19a8af14d8293ae64a49c2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_ForceFromCollisionPoint
+  m_targetCenter: {fileID: 6306750561132696479}
+  m_forceMagnitude: 10
+  m_forceMode: 1
+  m_collisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &7392236213276953348
 GameObject:
   m_ObjectHideFlags: 0

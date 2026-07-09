@@ -803,6 +803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IkeaTableMicroFishAquariumClient
       objectReference: {fileID: 0}
+    - target: {fileID: 2841310685380554405, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5476130775580891773, guid: 9684b8edeb018904189f537b0da1e73b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0613

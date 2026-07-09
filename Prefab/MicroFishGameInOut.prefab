@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2312252302744827474}
@@ -375,7 +375,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 866047078135635623}
@@ -704,8 +704,8 @@ Transform:
   m_GameObject: {fileID: 1726744170375444804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.7374}
+  m_LocalScale: {x: 1, y: 1, z: 0.4911632}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3223911444641063122}
@@ -848,6 +848,7 @@ MonoBehaviour:
   - {fileID: 6265623781748853435}
   - {fileID: 1396243032819824275}
   - {fileID: 4751940355846022992}
+  - {fileID: 2584284973930034572}
 --- !u!1 &2581146969814515900
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,8 +877,8 @@ Transform:
   m_GameObject: {fileID: 2581146969814515900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0.5438}
+  m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4988270479397611075}
@@ -1078,8 +1079,8 @@ Transform:
   m_GameObject: {fileID: 2953623311393986414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.5331}
+  m_LocalScale: {x: 1, y: 1, z: 0.05418639}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8596395272686448434}
@@ -1635,6 +1636,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8845033015419644599}
+  - {fileID: 8312673918711010629}
+  - {fileID: 1859455582507556711}
   m_Father: {fileID: 3578189466789127580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4503164727119959539
@@ -1738,6 +1741,56 @@ Transform:
   - {fileID: 9184370635626802121}
   m_Father: {fileID: 3578189466789127580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4683895000586573069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8312673918711010629}
+  - component: {fileID: 7909664518549259578}
+  m_Layer: 0
+  m_Name: BytesReceivedToIndexInteger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8312673918711010629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683895000586573069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6248036648918831306}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7909664518549259578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683895000586573069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3732dd775ad888c41aa8b3432ff63bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_ByteArrayIndexIntegerAsStringEvent
+  m_onTextChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_lastReceivedDebugText: 
+  formatStringValue: '{0}'
+  formatStringIndexValue: '{0}:{1}'
 --- !u!1 &5110847916002658353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +1976,24 @@ MonoBehaviour:
   m_onEmitTextInfoForPlayer:
     m_PersistentCalls:
       m_Calls: []
+  m_onByteReceivedFromClients:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2054760983218823638}
+        m_TargetAssemblyTypeName: MicroFishMono_ByteArrayToIndexIntegerEvent, be.elab.tbiomicrofish.Runtime
+        m_MethodName: PushBytesToParse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTextReceivedFromClients:
+    m_PersistentCalls:
+      m_Calls: []
   m_startDownCorner: {fileID: 4188392881590455907}
   m_endTopCorner: {fileID: 7819050612397181119}
   m_playerClaimedIndex: 000000002a00000034000000
@@ -1941,6 +2012,20 @@ MonoBehaviour:
   - {fileID: 5704488928328049320}
   - {fileID: 772910980674084480}
   - {fileID: 6353406198935359299}
+  m_playerNesInput:
+  - {fileID: 5905278119562839108}
+  - {fileID: 1534702282711655378}
+  - {fileID: 6716059315620705865}
+  - {fileID: 7994524887764343082}
+  - {fileID: 8110884283809799164}
+  - {fileID: 5027627785093099356}
+  - {fileID: 1439123644030590206}
+  - {fileID: 7041152063971817864}
+  - {fileID: 1506600223863532470}
+  - {fileID: 6811458813422236160}
+  - {fileID: 5706147304530874468}
+  - {fileID: 766679254458575948}
+  - {fileID: 6355126149537299855}
   m_playersBattery:
   - {fileID: 1559886128818564233}
   - {fileID: 5844067693512510239}
@@ -2032,6 +2117,92 @@ Transform:
   - {fileID: 8025732055915865540}
   m_Father: {fileID: 3578189466789127580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5475714535840068419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1859455582507556711}
+  - component: {fileID: 2054760983218823638}
+  m_Layer: 0
+  m_Name: BytesToIndexInteger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1859455582507556711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475714535840068419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6248036648918831306}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054760983218823638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475714535840068419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4ef48ea6a656b49a389673557e5999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_ByteArrayToIndexIntegerEvent
+  m_onIntegerFound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7909664518549259578}
+        m_TargetAssemblyTypeName: MicroFishMono_IndexIntegerAsStringEvent, be.elab.tbiomicrofish.Runtime
+        m_MethodName: PushInInteger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onIndexIntegerFound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5606526212426220071}
+        m_TargetAssemblyTypeName: Eloi.MicroFish.MicroFishMono_GameInOut, be.elab.tbiomicrofish.Runtime
+        m_MethodName: ThrustedIndexIntegerInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7909664518549259578}
+        m_TargetAssemblyTypeName: MicroFishMono_IndexIntegerAsStringEvent, be.elab.tbiomicrofish.Runtime
+        m_MethodName: PushInIndexInteger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5640014894929582364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5813186238797524674
 Transform:
   m_ObjectHideFlags: 0
@@ -2636,7 +2807,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5105269691428188749}
@@ -3251,6 +3422,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3326128056014189711, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
   m_PrefabInstance: {fileID: 2599621040868717230}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &766679254458575948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3364328733454786274, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &772910980674084480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3362601094475656238, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3299,6 +3481,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &1439123644030590206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4029453673600085584, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &1451374048492526601 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3474496952568278695, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3310,6 +3503,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1456a18f4567f8d4481917ec8ea136a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_SetMeshInstanceColor
+--- !u!114 &1506600223863532470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3529469141259163928, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &1509444895382772090 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3522120241029934036, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3321,6 +3525,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &1534702282711655378 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3557823950897418620, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &1537556309094404382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3550466812236260272, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3496,6 +3711,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6981758997483675192, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
   m_PrefabInstance: {fileID: 2599621040868717230}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5027627785093099356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7049836858624695794, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &5034914552863677840 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7047053198845947710, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3539,6 +3765,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &5706147304530874468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7720290359099646666, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &5818250398482088827 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8407418380575879637, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3572,6 +3809,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &5905278119562839108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8493919437315012330, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!4 &6265623781748853435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8277688896766949397, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3599,6 +3847,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &6355126149537299855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8944786713443241761, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!4 &6399005327612079660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8997735625549028482, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3620,6 +3879,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &6716059315620705865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8730097918215324903, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
+--- !u!114 &6811458813422236160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8832856447405523118, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &6817620231037747404 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8831199237285474914, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3664,6 +3945,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &7041152063971817864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5018285346120534822, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &7380177315610589567 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4789610891089873873, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -3691,6 +3983,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b830ff4b285de249bfb171123983c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::Eloi.MicroFish.MicroFishMono_MotorInput
+--- !u!114 &7994524887764343082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5395866058100501380, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
+--- !u!114 &8110884283809799164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6096769815418267986, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
+  m_PrefabInstance: {fileID: 2599621040868717230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9f6c37c7b6c774baa3bd8d00f26fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: be.elab.tbiomicrofish.Runtime::MicroFishMono_NesInputToMotorInput
 --- !u!114 &8112533795186534704 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6090616092251495326, guid: 63b9fc1ccc1b9614588b5cdc953992b0, type: 3}
@@ -4182,6 +4496,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: b8c5b6843a275554a97d781ce1f24436, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: b8c5b6843a275554a97d781ce1f24436, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a128d42a8e19bda4b8d9211b0f94c85d, type: 2}
@@ -4311,6 +4629,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3578189466789127580}
     m_Modifications:
+    - target: {fileID: 5553134880340087738, guid: ad4ce5732fa7eaa4fb86ace74e835ada, type: 3}
+      propertyPath: m_forceMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553134880340087738, guid: ad4ce5732fa7eaa4fb86ace74e835ada, type: 3}
+      propertyPath: m_forceMagnitude
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6306750561132696479, guid: ad4ce5732fa7eaa4fb86ace74e835ada, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4354,6 +4680,18 @@ PrefabInstance:
     - target: {fileID: 6527613348924179957, guid: ad4ce5732fa7eaa4fb86ace74e835ada, type: 3}
       propertyPath: m_Name
       value: SoccerBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039776716230709231, guid: ad4ce5732fa7eaa4fb86ace74e835ada, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039776716230709231, guid: ad4ce5732fa7eaa4fb86ace74e835ada, type: 3}
+      propertyPath: m_LinearDamping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039776716230709231, guid: ad4ce5732fa7eaa4fb86ace74e835ada, type: 3}
+      propertyPath: m_AngularDamping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

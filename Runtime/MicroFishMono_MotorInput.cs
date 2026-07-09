@@ -55,7 +55,35 @@ namespace Eloi.MicroFish
             if (motors.Length >= 4) m_frontMotorPercent11 = Mathf.Clamp(motors[3], -1f, 1f);
             PushToUnityEvent();
         }
-  
+
+        public void SetMotorHorizontalLeft() => SetHorizontalMotorFloat(-1f, 1f);
+        public void SetMotorHorizontalRight() => SetHorizontalMotorFloat(1f, -1f);
+        public void SetMotorHorizontalStop() => SetHorizontalMotorFloat(0f, 0f);
+
+        public void SetMotorVerticalUp() => SetVerticalMotorFloat(1f, 1f);
+        public void SetMotorVerticalDown() => SetVerticalMotorFloat(-1, -1f);
+        public void SetMotorVerticalStop() => SetVerticalMotorFloat(0f, 0f);
+
+        public void SetMotorHorizontalForward() => SetHorizontalMotorFloat(1f, 1f);
+        public void SetMotorHorizontalBackward() => SetHorizontalMotorFloat(-1f, -1f);
+
+
+
+
+        public void  SetHorizontalMotorFloat(float left, float right)
+        {
+            m_leftMotorPercent11 = Mathf.Clamp(left, -1f, 1f);
+            m_rightMotorPercent11 = Mathf.Clamp(right, -1f, 1f);
+            PushToUnityEvent();
+        }
+
+        public void SetVerticalMotorFloat(float back, float front)
+        {
+            m_backMotorPercent11 = Mathf.Clamp(back, -1f, 1f);
+            m_frontMotorPercent11 = Mathf.Clamp(front, -1f, 1f);
+            PushToUnityEvent();
+        }
+
         public void SetMotorLeftPercent11(float percent)
         {
             m_leftMotorPercent11 = Mathf.Clamp(percent, -1f, 1f);

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +14,8 @@ namespace Eloi.MicroFish
         public UnityEvent<string> m_onEmitTextInfo;
         public UnityEvent<int, byte[]> m_onEmitByteInfoForPlayer;
         public UnityEvent<int, string> m_onEmitTextInfoForPlayer;
+        public UnityEvent<byte[]> m_onByteReceivedFromClients;
+        public UnityEvent<string> m_onTextReceivedFromClients;
 
         public Transform m_startDownCorner;
         public Transform m_endTopCorner;
@@ -21,6 +24,7 @@ namespace Eloi.MicroFish
         public string[] m_playerClaimedPublicKey;
 
         public MicroFishMono_MotorInput[] m_playersInput;
+        public MicroFishMono_NesInputToMotorInput[] m_playerNesInput; 
         public MicroFishMono_BatteryForFourMotor[] m_playersBattery;
         public MicroFishMono_SetMeshInstanceColor[] m_playersColor;
         public Transform[] m_playersPosition;
@@ -315,6 +319,7 @@ namespace Eloi.MicroFish
 
         public void ThrustedInputParsing(byte[] data)
         {
+            m_onByteReceivedFromClients.Invoke(data);
             if (data.Length > 20)
                 return;
 
@@ -331,6 +336,89 @@ namespace Eloi.MicroFish
                     m_playersInput[playerIndex].SetMotorsWithFloatArray(motor1, motor2, motor3, motor4);
                 }
             }
+           
+        }
+
+       
+
+        public void ThrustedIndexIntegerInput(int index,int value)
+        {
+            if (index >= 0 && index < m_playerNesInput.Length)
+            {
+                MicroFishMono_NesInputToMotorInput nes = m_playerNesInput[index];
+                if (value>0 && value <= 9999) {
+                    //Debug.Log($"Player {index} received input value {value}");
+                    switch (value) {
+                        // NES
+                        //Up Arrow    1281    2281   
+                        //Right Arrow 1282    2282   
+                        //Down Arrow  1283    2283   
+                        //Left Arrow  1284    2284   
+                        //A Button    1285    2285   
+                        //B Button    1286    2286   
+                        //Menu Left   1287    2287   
+                        //Menu Right  1288    2288   
+
+                        case 1283: case 1335: case 1315: nes.m_buttonArrowDown = true; break;
+                        case 1284: case 1337: case 1311: nes.m_buttonArrowLeft = true; break;
+                        case 1281: case 1331: case 1317: nes.m_buttonArrowUp = true; break;
+                        case 1282: case 1333: case 1313: nes.m_buttonArrowRight = true; break;
+                        case 1285: case 1300: nes.m_buttonA = true; break;
+                        case 1286: case 1301: case 1302: case 1303: nes.m_buttonB = true; break;
+                        case 1309: case 1287: nes.m_buttonMenuLeft = true; break;
+                        case 1308: case 1288: nes.m_buttonMenuRight = true; break;
+
+
+                        case 2283: case 2335: case 2315: nes.m_buttonArrowDown = false; break;
+                        case 2284: case 2337: case 2311: nes.m_buttonArrowLeft = false; break;
+                        case 2281: case 2331: case 2317: nes.m_buttonArrowUp = false; break;
+                        case 2282: case 2333: case 2313: nes.m_buttonArrowRight = false; break;
+                        case 2285: case 2300: nes.m_buttonA = false; break;
+                        case 2286: case 2301: case 2302: case 2303: nes.m_buttonB = false; break;
+                        case 2309: case 2287: nes.m_buttonMenuLeft = false; break;
+                        case 2308: case 2288: nes.m_buttonMenuRight = false; break;
+
+
+                        //17 11 13 15
+
+
+
+                        //Gamepad
+                        //Up Arrow    1331    2331
+                        //Right Arrow 1333    2333
+                        //Down Arrow  1335    2335
+                        //Left Arrow  1337    2337
+                        //A Button    1300    2300
+                        //B Button(B)    1302    2302
+                        //B Button(X)    1301    2301
+                        //B Button(Y)    1303    2303
+                        //Menu Left   1309    2309
+                        //Menu Right  1308    2308
+
+                        default:
+                            Debug.LogWarning($"Player {index} received unknown input value {value}");
+                            break;
+                    }
+                }
+                if (value >= 1800000000 && value < 1900000000) { 
+                    // Gamepad
+                    // With default game default mapping
+                }
+                if (value >= 1600000000 && value < 1700000000)
+                {
+                    // Analogique value from with range of 9  -1 to 1 se S2W
+                }
+                if (value >= -1600000000 && value < -1500000000)
+                {
+                    // -1688899999
+                    // Analogique value from for 99999 on motor 888 -1 to 1 se S2W
+                }
+            }
+        }
+
+        public void PushInTextFromClientWithoutSource(string text) { 
+        
+            m_onTextReceivedFromClients.Invoke(text);   
         }
 
     }
